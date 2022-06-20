@@ -1,0 +1,14 @@
+{
+  "name": "buttplug-client",
+  "version": "0.0.4",
+  "description": "buttplug.io protocol implementation for server-side javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aaro Varis",
+  "license": "ISC",
+  "dependencies": {
+    "websocket": "^1.0.34"
+  }
+}
