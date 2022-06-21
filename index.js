@@ -34,6 +34,7 @@ exports.ButtplugClient = function() {
                     let device = {}
                     device.Id = msg.Devices[i].DeviceIndex
                     device.Name = msg.Devices[i].DeviceName
+
                     if (msg.Devices[i].DeviceMessages.VibrateCmd) {
                         device.Vibrate = function(motor,speed) {
                             client.SendRawMessage([
@@ -73,7 +74,7 @@ exports.ButtplugClient = function() {
                     device.RotateMotorCount = msg.Devices[i].DeviceMessages.RotateCmd.FeatureCount
 
                     if (msg.Devices[i].DeviceMessages.LinearCmd) {
-                        device.Rotate = function(motor,duration,position) {
+                        device.Linear = function(motor,duration,position) {
                             client.SendRawMessage([{
                                   "LinearCmd": {
                                     "DeviceIndex": device.Id,
@@ -91,7 +92,6 @@ exports.ButtplugClient = function() {
                     }
                     device.RotateMotorCount = msg.Devices[i].DeviceMessages.LinearCmd.FeatureCount
 
-
                     device.raw = msg.Devices[i]
                     if (olddevices[i]) {
                         client.Devices[device.Id] = device
@@ -103,9 +103,6 @@ exports.ButtplugClient = function() {
             }
         }
 
-      
-
-        
         connection.on('message', async function(wsmessage) {
             //console.log(wsmessage)
             if (wsmessage.type === 'utf8') {
