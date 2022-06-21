@@ -1,21 +1,26 @@
 # buttplug-client
 
-buttplug.io protocol implementation for server-side javascript and interfacing with buttplug server applications like [Intiface Desktop](https://intiface.com/)
+## a simple buttplug.io nodejs implementation
 
+buttplug.io protocol implementation for server-side javascript (nodejs) and interfacing with buttplug server applications like [Intiface Desktop](https://intiface.com/)
+
+* Interface with buttplug.io servers
+* Easily program lovense and similiar products (Hush, Edge, Lush, etc.)
 
 ## Basic Usage
+
 ```js
 var buttplugclient = require("buttplug-client").ButtplugClient()
 
-buttplugclient.on("ready", function(data) {
-    console.log(data)
+buttplugclient.on("ready", function(ServerInfo) {
+    console.log(ServerInfo)
 })
 
 buttplugclient.on("DeviceAdded", function(device) {
     device.Vibrate(0,Math.random())
 })
 
-buttplugclient.connect()
+buttplugclient.connect("ws://localhost:12345")
 
 setInterval(() => {
     // get first device
