@@ -51,8 +51,9 @@ exports.ButtplugClient = function() {
                                 }
                             ])
                         }
+                        device.VibrateMotorCount = msg.Devices[i].DeviceMessages.VibrateCmd.FeatureCount
                     }
-                    device.VibrateMotorCount = msg.Devices[i].DeviceMessages.VibrateCmd.FeatureCount
+                    
 
                     if (msg.Devices[i].DeviceMessages.RotateCmd) {
                         device.Rotate = function(motor,speed,clockwise) {
@@ -70,8 +71,9 @@ exports.ButtplugClient = function() {
                                 }
                             ])
                         }
+                        device.RotateMotorCount = msg.Devices[i].DeviceMessages.RotateCmd.FeatureCount
                     }
-                    device.RotateMotorCount = msg.Devices[i].DeviceMessages.RotateCmd.FeatureCount
+                    
 
                     if (msg.Devices[i].DeviceMessages.LinearCmd) {
                         device.Linear = function(motor,duration,position) {
@@ -89,8 +91,9 @@ exports.ButtplugClient = function() {
                                 }
                             ])
                         }
+                        device.LinearMotorCount = msg.Devices[i].DeviceMessages.LinearCmd.FeatureCount
                     }
-                    device.RotateMotorCount = msg.Devices[i].DeviceMessages.LinearCmd.FeatureCount
+                    
 
                     device.raw = msg.Devices[i]
                     if (olddevices[i]) {
