@@ -18,9 +18,7 @@ buttplugclient.on("ready", function(ServerInfo) {
 
 buttplugclient.on("DeviceAdded", function(device) {
     // turn on all the motors at max power
-    for (let i = 0; i < device.VibrateMotorCount; i++) {
-        device.Vibrate(i,1)
-    }   
+    console.log(device)
 })
 
 buttplugclient.connect("ws://localhost:12345")
@@ -30,7 +28,6 @@ setInterval(() => {
     var device = buttplugclient.Devices[0]
     if (device) {
         let p = (Math.sin(Date.now()/500)/2.5)+0.5
-        console.log(p)
         for (let i = 0; i < device.VibrateMotorCount; i++) {
             device.Vibrate(i,p)
         }

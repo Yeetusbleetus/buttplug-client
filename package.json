@@ -1,6 +1,6 @@
 {
   "name": "buttplug-client",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "buttplug.io protocol implementation for server-side javascript",
   "main": "index.js",
   "scripts": {
